@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 void associativity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[a][arr[b][c]] != arr[arr[a][b]][c]){
                     count ++;
                     break;
@@ -25,10 +24,10 @@ void associativity(int n, int arr[n][n]){
 
 void mediumship(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
-                for(int d=1; d<=n; d++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
+                for(int d=1; d<n; d++){
                     if(arr [arr[a][b]] [arr[c][d]] != arr [arr[a][c]] [arr[b][d]]){
                         count ++;
                         break;
@@ -48,10 +47,10 @@ void mediumship(int n, int arr[n][n]){
 
 void paramediality(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
-                for(int d=1; d<=n; d++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
+                for(int d=1; d<n; d++){
                     if(arr [arr[a][b]] [arr[c][d]] != arr [arr[d][b]] [arr[c][a]]){
                         count ++;
                         break;
@@ -71,11 +70,11 @@ void paramediality(int n, int arr[n][n]){
 
 void bicommutativity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
-                for(int d=1; d<=n; d++){
-                    if(arr [arr[a][b]] [arr[c][d]] != arr [arr[d][c]] [arr[b][a]]){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
+                for(int d=1; d<n; d++){
+                    if(arr[arr[a][b]][arr[c][d]] != arr[arr[d][c]][arr[b][a]]){
                         count ++;
                         break;
                     }
@@ -94,9 +93,9 @@ void bicommutativity(int n, int arr[n][n]){
 
 void ag_groupoid(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr [arr[a][b]] [c] != arr [arr[c][b]] [a]){
                     count ++;
                     break;
@@ -115,9 +114,9 @@ void ag_groupoid(int n, int arr[n][n]){
 
 void ga_groupoid(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[arr[a][b]][c] != arr[c][arr[b][a]]){
                     count ++;
                     break;
@@ -136,9 +135,9 @@ void ga_groupoid(int n, int arr[n][n]){
 
 void ga1_groupoid(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[arr[a][b]][c] != arr[arr[c][a]][b]){
                     count ++;
                     break;
@@ -157,9 +156,9 @@ void ga1_groupoid(int n, int arr[n][n]){
 
 void ad_groupoid(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[a][arr[b][c]] != arr[c][arr[b][a]]){
                     count ++;
                     break;
@@ -178,9 +177,9 @@ void ad_groupoid(int n, int arr[n][n]){
 
 void da_groupoid(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[a][arr[b][c]] != arr[c][arr[a][b]]){
                     count ++;
                     break;
@@ -199,14 +198,14 @@ void da_groupoid(int n, int arr[n][n]){
 
 void hexagonality(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
+    for(int a=1; a<n; a++){
         if(arr[a][a] != a) count++;
     }
   
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
-                for(int d=1; d<=n; d++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
+                for(int d=1; d<n; d++){
                     if(arr[arr[a][b]][arr[c][d]] != arr[arr[a][c]][arr[b][d]]){
                         count ++;
                         break;
@@ -216,8 +215,8 @@ void hexagonality(int n, int arr[n][n]){
         }
     }
   
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
             if(arr[a][arr[a][b]] != arr[arr[a][b]][a] || arr[arr[a][b]][a] != b){
                 count ++;
                 break;
@@ -236,9 +235,9 @@ void hexagonality(int n, int arr[n][n]){
 
 void right_distributivity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[arr[a][b]][c] != arr[arr[a][c]][arr[b][c]]){
                     count ++;
                     break;
@@ -257,9 +256,9 @@ void right_distributivity(int n, int arr[n][n]){
 
 void left_distributivity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[c][arr[a][b]] != arr[arr[c][a]][arr[c][b]]){
                     count ++;
                     break;
@@ -278,8 +277,8 @@ void left_distributivity(int n, int arr[n][n]){
 
 void right_unity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
             if(arr[a][b] != a){
                 count ++;
                 break;
@@ -297,8 +296,8 @@ void right_unity(int n, int arr[n][n]){
 
 void left_unity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
             if(arr[b][a] != a){
                 count ++;
                 break;
@@ -316,9 +315,9 @@ void left_unity(int n, int arr[n][n]){
 
 void unity(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            if(arr[a][b] != arr[b][a] && arr[b][a] != a){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            if(arr[a][b] != arr[b][a] || arr[a][b] != a){
                 count ++;
                 break;
             }
@@ -335,9 +334,9 @@ void unity(int n, int arr[n][n]){
 
 void ward(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[a][b] != arr[arr[a][c]][arr[b][c]]){
                     count ++;
                     break;
@@ -356,9 +355,9 @@ void ward(int n, int arr[n][n]){
 
 void inverse_ward(int n, int arr[n][n]){
     int count = 0;
-    for(int a=1; a<=n; a++){
-        for(int b=1; b<=n; b++){
-            for(int c=1; c<=n; c++){
+    for(int a=1; a<n; a++){
+        for(int b=1; b<n; b++){
+            for(int c=1; c<n; c++){
                 if(arr[a][b] != arr[arr[c][a]][arr[c][b]]){
                     count ++;
                     break;
@@ -378,21 +377,22 @@ void inverse_ward(int n, int arr[n][n]){
 void read_file(FILE *file){
     int n = 0;
 	fscanf(file, "%d", &n);
+	n++;
 	int arr[n][n];
 	//printf("%d\n", n);
-	for(int a=1; a<=n; a++){
-		for(int b=1; b<=n; b++){
+	for(int a=1; a<n; a++){
+		for(int b=1; b<n; b++){
 			fscanf(file, "%i", &arr[a][b]);
-        }
+                }
 	}
 	
-	for(int a=1; a<=n; a++){
-		for(int b=1; b<=n; b++){
+	for(int a=1; a<n; a++){
+		for(int b=1; b<n; b++){
 			printf("%i ", arr[a][b]);
-        }
-        printf("\n");
+                }
+                printf("\n");
 	}
-  associativity(n, arr);
+        associativity(n, arr);
 	mediumship(n, arr);
 	paramediality(n, arr);
 	bicommutativity(n, arr);
@@ -420,10 +420,10 @@ int main(){
 	
 	int i=0;
 	do{
-        read_file(file);
-        printf("\ncontinue? (y/n): ");
-        scanf(" %c", &awns);
-        i++;
+          read_file(file);
+          printf("\ncontinue? (y/n): ");
+          scanf(" %c", &awns);
+          i++;
 	}while(awns == 'y' && i<18);
 	
 	fclose(file);
