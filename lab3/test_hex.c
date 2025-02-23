@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #define MAX_SIZE 512
+#define MAX 256
 
 void read_hex_file(FILE *file, unsigned char arr[17][17], int size) {
     if (!file) {
@@ -23,6 +25,89 @@ void read_hex_file(FILE *file, unsigned char arr[17][17], int size) {
         printf("\n");
     }
 }
+
+bool findChar(unsigned char ch, unsigned char arr2[MAX]){
+	for(int c=1; c<=MAX; c++){
+		if(arr2[c] == ch){
+			return true;
+		}
+	}
+	
+    return false;
+}
+
+int indexChar(unsigned char ch, unsigned char arr2[MAX]){
+	for(int c=1; c<=MAX; c++){
+		if(arr2[c] == ch){
+			return c;
+		}
+	}
+	
+    return 1;
+}
+
+int getMax(int size, unsigned char arr[MAX]){
+	int max = indexChar(arr[1], arr);
+	for(int a=1; a<=size; a++){
+		if(max < indexChar(arr[a], arr)){
+			max = indexChar(arr[a], arr);
+		}
+	}
+	return max;
+}
+
+void createNewArray(unsigned char arr[17][17], int size, unsigned char arr2[MAX], int finArr[17][17]){
+int count = 1;
+for (int i = 0; i < MAX; i++) {
+        arr2[i] = 0;
+    }
+
+    for(int a=1; a<=size; a++){
+        for(int b=1; b<=size; b++){
+            for(int c=1; c<=MAX; c++){
+                if(!findChar(arr[a][b], arr2)){
+                    arr2[count] = arr[a][b];
+                    count++;
+                    break;
+                }
+            }
+        }
+    }
+    
+    printf("\n");
+    for(int c=1; c<=count; c++){
+    	printf("%02x ", arr2[c]);
+    }
+    printf("\n");
+    
+    /*for(int a=1; a<=size; a++){
+        for(int b=1; b<=size; b++){
+             finArr[a][b] = 0;
+        }
+    }*/
+    
+    unsigned char filler = (unsigned char)00;
+    int max = getMax(count, arr2);
+    for(int a=1; a<=max; a++){
+        for(int b=1; b<=max; b++){
+       		finArr[a][b] = 0;
+        }
+    }
+    
+    for(int a=1; a<=size; a++){
+        for(int b=1; b<=size; b++){
+       		finArr[a][b] = indexChar(arr[a][b], arr2);
+        }
+    }
+    printf("\n");
+    for(int a=1; a<=max; a++){
+        for(int b=1; b<=max; b++){
+            printf("%d ", finArr[a][b]);
+        }
+    	printf("\n");
+    }
+}
+
 
 void associativity(FILE *file_write, int size, unsigned char arr[17][17]) {
     int count = 0;
@@ -436,11 +521,16 @@ int main(int argc, char **argv) {
     FILE *file = fopen(filename, "rb");
     FILE *file_write = fopen("results.txt", "w");
     unsigned char arr[17][17];
+    unsigned char arr2[MAX];
+    int finArr[17][17];
     int size = 16;
     char awns;
     int count = 1;
     
-    do{
+      read_hex_file(file, arr, size);
+      createNewArray(arr, size, arr2, finArr);
+      
+    /*do{
       read_hex_file(file, arr, size);
       
       fprintf(file_write, "%d: ", count);
@@ -465,7 +555,7 @@ int main(int argc, char **argv) {
         count++;
           //printf("\ncontinue? (y/n): ");
           //scanf(" %c", &awns);
-    }while(!feof(file));
+    }while(!feof(file));*/
     fclose(file);
     return 0;
 }
